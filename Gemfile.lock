@@ -93,6 +93,8 @@ GEM
       timers (>= 4.1.1)
     celluloid-supervision (0.20.5)
       timers (>= 4.1.1)
+    codeclimate-test-reporter (0.4.8)
+      simplecov (>= 0.7.1, < 1.0.0)
     concurrent-ruby (1.0.0)
     crack (0.4.3)
       safe_yaml (~> 1.0.0)
@@ -238,6 +240,7 @@ PLATFORMS
 
 DEPENDENCIES
   byebug
+  codeclimate-test-reporter
   distribot!
   distribot-ui!
   jquery-rails
