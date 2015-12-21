@@ -1,5 +1,5 @@
 GIT
-  remote: git@github.com:jdrago999/distribot.git
+  remote: https://github.com/jdrago999/distribot.git
   revision: 82f0d4a282b783351d9e3b40bd52fa63e39600b6
   specs:
     distribot (0.1.0)
