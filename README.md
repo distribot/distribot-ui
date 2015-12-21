@@ -14,3 +14,4 @@ A web frontend for Distribot.
 `distribot-ui restart`
 
 `distribot-ui stop`
+
