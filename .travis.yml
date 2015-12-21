@@ -1,0 +1,10 @@
+---
+
+language: ruby
+rvm: 2.0.0
+before_install:
+  - gem install bundler --no-ri --no-rdoc
+script: CODECLIMATE_REPO_TOKEN=738946435e63f735bd2c64052a5c04859d9628644c4183e3c25944455e4fb015 bundle && bundle exec rspec
+addons:
+  code_climate:
+    repo_token: 738946435e63f735bd2c64052a5c04859d9628644c4183e3c25944455e4fb015
