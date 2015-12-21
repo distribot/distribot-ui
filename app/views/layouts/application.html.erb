@@ -29,7 +29,23 @@
 
 <body class="<%= controller_name %>" id="<%= action_name %>">
 
+<div class="ui secondary pointing menu fixed main-nav">
+  <a class="brand item" href="/">
+    <%= image_tag 'distribot-70x70.png', class: 'ui image' %>
+    &nbsp;&nbsp;
+    Distribot
+  </a>
+  <a class="active item" href="/">Foo</a>
+  <a class="item" href="/">Foo</a>
+  <a class="item" href="/">Foo</a>
+  <a class="item" href="/">Foo</a>
+</div>
+
+<div id="main" class="ui grid">
+  <div class="column">
 <%= yield %>
+  </div>
+</div>
 
 </body>
 </html>

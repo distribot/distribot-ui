@@ -1,1 +1,17 @@
 @import "semantic-ui";
+
+div.main-nav {
+  background-color: white !important;
+  a.brand.item {
+    font-size: 30px;
+    img {
+      height: 36px;
+      width: 36px;
+    }
+  }
+}
+
+div#main {
+  position: relative;
+  top: 95px;
+}
