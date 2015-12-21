@@ -1,7 +1,7 @@
 
 # DistribotUI
 
-A web frontend to Distribot.
+A web frontend for Distribot.
 
 ## Installation
 
