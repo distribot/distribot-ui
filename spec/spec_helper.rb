@@ -43,7 +43,12 @@ RSpec.configure do |config|
   #     --seed 1234
   config.order = "random"
 
-  config.before(:suite) do
+  config.before :suite do
+    WebMock.enable!
+    WebMock.disable_net_connect!(
+      :allow_localhost => false,
+      :allow => 'codeclimate.com'
+    )
   end
   config.before(:each) do
   end
