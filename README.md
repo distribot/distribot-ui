@@ -18,3 +18,7 @@ A web frontend for Distribot.
 
 `distribot-ui stop`
 
+## Screenshots
+
+[![Screenshot](docs/distribot-ui-screenshot.png)](docs/distribot-ui-screenshot.png)
+

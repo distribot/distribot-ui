@@ -1,5 +1,4 @@
 coverage/
-*.png
 .vagrant
 .byebug_history
 cool/
