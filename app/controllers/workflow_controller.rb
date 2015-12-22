@@ -3,13 +3,13 @@ class WorkflowController < ApplicationController
   before_filter :set_active_nav
 
   def list
-    @meta_title = 'Active Workflows'
+    @meta_title = 'Active Flows'
     @workflows = Distribot::Workflow.active
     render @workflows.empty? ? :empty_list : :list
   end
 
   def create
-    @meta_title = 'Create Workflow'
+    @meta_title = 'Create Flow'
     if request.method == 'POST'
       begin
         @workflow = Distribot::Workflow.create!(JSON.parse(params[:json], symbolize_names: true))
@@ -44,7 +44,7 @@ class WorkflowController < ApplicationController
 
   def show
     @workflow = Distribot::Workflow.find(params[:workflow_id])
-    @meta_title = "View Workflow #{@workflow.id}"
+    @meta_title = "View Flow #{@workflow.id}"
   end
 
   def pause

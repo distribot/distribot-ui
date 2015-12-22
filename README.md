@@ -1,6 +1,7 @@
 
 # DistribotUI
 
+[![Build Status](https://travis-ci.org/jdrago999/distribot-ui.svg)](https://travis-ci.org/jdrago999/distribot-ui)
 [![Code Climate](https://codeclimate.com/github/jdrago999/distribot-ui/badges/gpa.svg)](https://codeclimate.com/github/jdrago999/distribot-ui)
 [![Test Coverage](https://codeclimate.com/github/jdrago999/distribot-ui/badges/coverage.svg)](https://codeclimate.com/github/jdrago999/distribot-ui/coverage)
 
