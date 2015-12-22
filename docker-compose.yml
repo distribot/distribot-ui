@@ -23,7 +23,10 @@ code:
     - INFRA_HOST=infra_1
     - RABBITMQ_USERNAME=distribot
     - RABBITMQ_PASSWORD=distribot
-  working_dir: /var/www/distribot
+  working_dir: /var/www/distribot-ui
   links:
     - infra
+  ports:
+    - 3000
+    - 9292
   command: bash -c "./provision/distribot-ui.sh && tail -f /dev/null"

@@ -29,8 +29,6 @@ setup_dependencies() {
 Host github.com
     StrictHostKeyChecking no
 EOF
-
-  sudo gem install eye --no-ri --no-rdoc
 }
 
 setup_dependencies

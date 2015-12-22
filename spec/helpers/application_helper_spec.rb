@@ -8,7 +8,7 @@ describe ApplicationHelper do
           @active_nav = :foo
         end
         it 'returns the active' do
-          expect(helper.active_nav(:foo)).to eq 'active'
+          expect(helper.active_nav(:foo)).to eq 'active red inverted'
         end
       end
       context 'does not match' do

@@ -1,1 +1,54 @@
-list.html.erb
+
+<div class="ui page grid">
+  <div class="column">
+    <div class="ui two column grid">
+      <div class="column">
+        <h2>Flows</h2>
+      </div>
+      <div class="column right aligned">
+        <a href="<%= create_workflow_path %>" class="ui green button right labeled icon">
+          Create New Flow
+          <i class="right arrow icon"></i>
+        </a>
+      </div>
+    </div>
+    <div class="ui divider"></div>
+    <table class="ui very basic celled collapsed table">
+      <thead>
+        <th class="six wide">Flows ID</th>
+        <th class="four wide">Created</th>
+        <th class="six wide">Progress</th>
+      </thead>
+      <tbody>
+<%
+  @workflows.sort_by(&:created_at).reverse_each do |workflow|
+%>
+        <tr>
+          <td>
+            <a href="<%= show_workflow_path(workflow_id: workflow.id) %>"><%= workflow.id %></a>
+          </td>
+          <td>
+            <%= time_ago_in_words Time.at(workflow.created_at) %> ago
+          </td>
+          <td>
+<%
+    workflow.phases.each do |phase|
+%>
+            <div class="phase">
+              <%= phase.name %>
+              <% if workflow.current_phase == phase.name %>
+              <i class="left arrow icon"></i>
+              <% end %>
+            </div>
+<%
+    end
+%>
+          </td>
+        </tr>
+<%
+  end
+%>
+      </tbody>
+    </table>
+  </div>
+</div>

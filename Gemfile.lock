@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/jdrago999/distribot.git
-  revision: 82f0d4a282b783351d9e3b40bd52fa63e39600b6
+  revision: fc1c41f35e98ad04d7b0e3a880ac1d52ea12e15a
   specs:
     distribot (0.1.0)
       activesupport

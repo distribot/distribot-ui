@@ -36,13 +36,31 @@
     Distribot
   </a>
   <a class="item <%= active_nav(:summary) %>" href="/">Summary</a>
-  <a class="item <%= active_nav(:workflows) %>" href="/workflows">Workflows</a>
+  <a class="item <%= active_nav(:workflows) %>" href="/workflows">Flows</a>
   <a class="item <%= active_nav(:handlers) %>" href="/handlers">Handlers</a>
   <a class="item <%= active_nav(:workers) %>" href="/workers">Workers</a>
 </div>
 
 <div id="main" class="ui grid">
   <div class="column">
+
+
+<%
+  if flash[:error] || flash[:notice]
+%>
+
+  <div class="ui page grid">
+    <div class="row">
+      <div class="column">
+
+        <%= semantic_flash %>
+      </div>
+    </div>
+  </div>
+<%
+  end
+%>
+
 <%= yield %>
   </div>
 </div>
