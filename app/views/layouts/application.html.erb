@@ -35,33 +35,36 @@
     &nbsp;&nbsp;
     Distribot
   </a>
+<% if signed_in? %>
   <a class="item <%= active_nav(:summary) %>" href="/">Summary</a>
   <a class="item <%= active_nav(:workflows) %>" href="/workflows">Flows</a>
   <a class="item <%= active_nav(:handlers) %>" href="/handlers">Handlers</a>
   <a class="item <%= active_nav(:workers) %>" href="/workers">Workers</a>
+<% end %>
+<% if signed_in? %>
+<div id="account-menu" style="position: absolute; right: 8px; top: 12px; border-radius: 0px; white-space: nowrap">
+  <div class="ui image label red"><%= current_user.email %>
+    <a class="ui detail" href="/signout">Sign Out</a>
+  </div>
 </div>
+<% end %>
+</div>
+
 
 <div id="main" class="ui grid">
   <div class="column">
 
 
-<%
-  if flash[:error] || flash[:notice]
-%>
-
+  <% if flash[:error] || flash[:notice] %>
   <div class="ui page grid">
     <div class="row">
       <div class="column">
-
         <%= semantic_flash %>
       </div>
     </div>
   </div>
-<%
-  end
-%>
-
-<%= yield %>
+  <% end %>
+  <%= yield %>
   </div>
 </div>
 

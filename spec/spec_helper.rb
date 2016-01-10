@@ -8,6 +8,7 @@ SimpleCov.start 'rails' do
   add_filter '.vendor/'
   add_filter 'spec/'
   add_filter 'lib/distribot*'
+  add_filter 'lib/redis_model*'
 end
 SimpleCov.minimum_coverage 97
 require 'rspec/rails'
@@ -53,6 +54,16 @@ RSpec.configure do |config|
   config.before(:each) do
   end
   config.after(:each) do
+  end
+
+  config.before(:suite) do
+    User.delete_all
+  end
+  config.before(:each) do
+    User.delete_all
+  end
+  config.after(:each) do
+    User.delete_all
   end
 
   config.expect_with :rspec do |expectations|
