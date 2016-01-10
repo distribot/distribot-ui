@@ -1,0 +1,32 @@
+
+<div class="ui page stackable grid">
+  <div class="row">
+    <div class="four wide computer three wide tablet only column">
+    </div>
+    <div class="eight wide computer ten wide tablet sixteen wide mobile column">
+    <%= form_tag({}, method: :post, class: "ui form signin-form") do %>
+      <div class="ui segment top attached">
+        <h3>Sign In</h3>
+      </div>
+      <div class="ui attached segment">
+        <div class="ui required field">
+          <label>Email:</label>
+          <input type="email" name="email" class="ui input">
+        </div>
+        <div class="ui required field">
+          <label>Password:</label>
+          <input type="password" name="password" class="ui input">
+        </div>
+        <div class="ui error message"></div>
+      </div>
+      <div class="ui bottom attached segment right aligned">
+        <button class="ui green right labeled icon button">
+          Sign In
+          <i class="ui right arrow icon"></i>
+        </button>
+      </div>
+    <% end %>
+    <div class="four wide computer three wide tablet only column">
+    </div>
+  </div>
+</div>

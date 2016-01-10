@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
-  root 'public#home'
+
+  root 'signin#signin', as: :signin, constraints: lambda { |req| req.session[:user_id].nil? }
+  root 'admin#home', as: :admin_home, constraints: lambda { |req| ! req.session[:user_id].nil? }
+
+  post '/' => 'signin#submit_signin'
+  get '/signout' => 'signin#signout'
 
   scope 'workflows' do
     get '' => 'workflow#list'

@@ -27,6 +27,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'byebug'
   spec.add_development_dependency 'rspec-rails'
   spec.add_development_dependency 'shoulda-matchers'
+#  spec.add_development_dependency 'factory_girl_rails'
   spec.add_development_dependency 'webmock'
   spec.add_development_dependency 'simplecov'
   spec.add_development_dependency 'web-console', '~> 2.0'
@@ -35,6 +36,8 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'font-awesome-rails'
   spec.add_dependency 'sass-rails', '~> 5.0'
   spec.add_dependency 'sprockets'
+  spec.add_dependency 'tubesock'
+  spec.add_dependency 'bcrypt', '~> 3.1'
 
   spec.add_dependency 'bundler'
   spec.add_dependency 'puma'
