@@ -13,6 +13,7 @@ end
 SimpleCov.minimum_coverage 97
 require 'rspec/rails'
 require 'webmock/rspec'
+require 'factory_girl_rails'
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
