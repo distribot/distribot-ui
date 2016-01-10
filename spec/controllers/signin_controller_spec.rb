@@ -1,7 +1,17 @@
 require 'spec_helper'
 
 describe SigninController do
+
   describe '#signin' do
+    before do
+      get :signin
+    end
+    it 'renders the correct template' do
+      expect(response).to render_template :signin
+    end
+  end
+
+  describe '#submit_signin' do
     before do
       @user = FactoryGirl.create(:user)
       @form = {
@@ -14,7 +24,7 @@ describe SigninController do
         context 'and the password' do
           context 'is correct' do
             before do
-              post :signin, @form
+              post :submit_signin, @form
             end
             it 'signs the user in' do
               expect(session[:user_id]).to eq @user.id
@@ -26,7 +36,7 @@ describe SigninController do
           context 'is incorrect' do
             before do
               @form[:password] = 'invalid-password'
-              post :signin, @form
+              post :submit_signin, @form
             end
             it 'redirects back to signin page' do
               expect(response).to redirect_to :signin
@@ -40,7 +50,7 @@ describe SigninController do
       context 'is invalid' do
         before do
           @form[:email] = 'invalid@invalid.com'
-          post :signin, @form
+          post :submit_signin, @form
         end
         it 'redirects back to signin page' do
           expect(response).to redirect_to :signin
