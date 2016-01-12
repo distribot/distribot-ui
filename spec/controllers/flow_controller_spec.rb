@@ -1,13 +1,13 @@
 require 'spec_helper'
 
-describe WorkflowController do
+describe FlowController do
   describe '#list' do
     context 'when there' do
-      context 'are workflows' do
+      context 'are flows' do
         before do
-          expect(Distribot::Workflow).to receive(:active) do
-            workflow = double('workflow')
-            [ workflow ]
+          expect(Distribot::Flow).to receive(:active) do
+            flow = double('flow')
+            [ flow ]
           end
           get :list
         end
@@ -15,9 +15,9 @@ describe WorkflowController do
           expect(response).to render_template :list
         end
       end
-      context 'are no workflows' do
+      context 'are no flows' do
         before do
-          expect(Distribot::Workflow).to receive(:active){ [] }
+          expect(Distribot::Flow).to receive(:active){ [] }
           get :list
         end
         it 'shows the empty state' do
@@ -27,11 +27,11 @@ describe WorkflowController do
     end
   end
   describe '#show' do
-    context 'when the workflow exists' do
+    context 'when the flow exists' do
       before do
-        @workflow = Distribot::Workflow.new(id: 'xxx')
-        expect(Distribot::Workflow).to receive(:find).with('xxx'){ @workflow }
-        get :show, workflow_id: @workflow.id
+        @flow = Distribot::Flow.new(id: 'xxx')
+        expect(Distribot::Flow).to receive(:find).with('xxx'){ @flow }
+        get :show, flow_id: @flow.id
       end
       it 'is displayed' do
         expect(response).to be_successful
@@ -42,7 +42,7 @@ describe WorkflowController do
   describe '#create' do
     describe 'GET' do
       before do
-        expect(Distribot::Workflow).to receive(:new)
+        expect(Distribot::Flow).to receive(:new)
         get :create
       end
       it 'renders the correct template' do
@@ -52,13 +52,13 @@ describe WorkflowController do
     describe 'POST' do
       context 'when successful' do
         before do
-          @workflow = Distribot::Workflow.new(id: 'xxx')
-          expect(Distribot::Workflow).to receive(:create!){ @workflow }
+          @flow = Distribot::Flow.new(id: 'xxx')
+          expect(Distribot::Flow).to receive(:create!){ @flow }
           post :create, json: {foo: :bar}.to_json
         end
-        it 'creates a new workflow and redirects to view the new workflow' do
+        it 'creates a new flow and redirects to view the new flow' do
           expect(flash[:notice]).not_to be_nil
-          expect(response).to redirect_to show_workflow_path(workflow_id: @workflow.id)
+          expect(response).to redirect_to show_flow_path(flow_id: @flow.id)
         end
       end
       context 'when creation fails' do
@@ -73,7 +73,7 @@ describe WorkflowController do
         end
         context 'for some other reason' do
           before do
-            expect(Distribot::Workflow).to receive(:create!){ raise "Test Error" }
+            expect(Distribot::Flow).to receive(:create!){ raise "Test Error" }
             post :create, json: {some_json: :that_fails}.to_json
           end
           it 'allows the user to try again' do

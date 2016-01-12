@@ -6,17 +6,17 @@ Rails.application.routes.draw do
   post '/' => 'signin#submit_signin'
   get '/signout' => 'signin#signout'
 
-  scope 'workflows' do
-    get '' => 'workflow#list'
+  scope 'flows' do
+    get '' => 'flow#list'
     scope 'new' do
-      get '' => 'workflow#create', as: :create_workflow
-      post '' => 'workflow#create'
+      get '' => 'flow#create', as: :create_flow
+      post '' => 'flow#create'
     end
-    scope ':workflow_id' do
-      get '' => 'workflow#show', as: :show_workflow
-      post 'cancel' => 'workflow#cancel', as: :cancel_workflow
-      post 'pause' => 'workflow#pause', as: :pause_workflow
-      post 'resume' => 'workflow#resume', as: :resume_workflow
+    scope ':flow_id' do
+      get '' => 'flow#show', as: :show_flow
+      post 'cancel' => 'flow#cancel', as: :cancel_flow
+      post 'pause' => 'flow#pause', as: :pause_flow
+      post 'resume' => 'flow#resume', as: :resume_flow
     end
   end
 

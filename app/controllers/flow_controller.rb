@@ -1,32 +1,32 @@
 
-class WorkflowController < ApplicationController
+class FlowController < ApplicationController
   before_filter :set_active_nav
 
   def list
     @meta_title = 'Active Flows'
-    @workflows = Distribot::Workflow.active
-    render @workflows.empty? ? :empty_list : :list
+    @flows = Distribot::Flow.active
+    render @flows.empty? ? :empty_list : :list
   end
 
   def create
     @meta_title = 'Create Flow'
     if request.method == 'POST'
       begin
-        @workflow = Distribot::Workflow.create!(JSON.parse(params[:json], symbolize_names: true))
+        @flow = Distribot::Flow.create!(JSON.parse(params[:json], symbolize_names: true))
         flash[:notice] = 'Successfully Created'
-        redirect_to show_workflow_path(workflow_id: @workflow.id)
+        redirect_to show_flow_path(flow_id: @flow.id)
       rescue
         flash[:error] = 'There was a problem - please try again'
         begin
-          @workflow = Distribot::Workflow.new(JSON.parse(params[:json]))
+          @flow = Distribot::Flow.new(JSON.parse(params[:json]))
         rescue JSON::ParserError => e
           flash[:error] = "Invalid JSON: #{e}"
-          @workflow_json = params[:json]
-          @workflow = Distribot::Workflow.new()
+          @flow_json = params[:json]
+          @flow = Distribot::Flow.new()
         end
       end
     else
-      @workflow = Distribot::Workflow.new(
+      @flow = Distribot::Flow.new(
         phases: [
           {
             name: "start",
@@ -43,8 +43,8 @@ class WorkflowController < ApplicationController
   end
 
   def show
-    @workflow = Distribot::Workflow.find(params[:workflow_id])
-    @meta_title = "View Flow #{@workflow.id}"
+    @flow = Distribot::Flow.find(params[:flow_id])
+    @meta_title = "View Flow #{@flow.id}"
   end
 
   def pause
@@ -59,6 +59,6 @@ class WorkflowController < ApplicationController
   private
 
   def set_active_nav
-    @active_nav = :workflows
+    @active_nav = :flows
   end
 end
