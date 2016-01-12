@@ -1,1 +1,35 @@
-list.html.erb
+
+<div class="ui page grid">
+  <div class="column">
+    <div class="ui two column grid">
+      <div class="column">
+        <h2>Handlers</h2>
+      </div>
+      <div class="column right aligned">
+      </div>
+    </div>
+    <div class="ui divider"></div>
+    <table class="ui very basic celled collapsed table">
+      <thead>
+        <th class="eight wide">Name</th>
+        <th class="eight wide">Version</th>
+      </thead>
+      <tbody>
+<%
+  @handlers.sort_by(&:name).each do |handler|
+%>
+        <tr>
+          <td>
+            <a href="<%= show_handler_path(name: handler.name, version: handler.version) %>"><%= handler.name %></a>
+          </td>
+          <td>
+            <%= handler.version %>
+          </td>
+        </tr>
+<%
+  end
+%>
+      </tbody>
+    </table>
+  </div>
+</div>

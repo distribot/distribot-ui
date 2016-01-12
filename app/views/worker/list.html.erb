@@ -1,1 +1,31 @@
-list.html.erb
+
+<div class="ui page grid">
+  <div class="column">
+    <div class="ui two column grid">
+      <div class="column">
+        <h2>Workers</h2>
+      </div>
+      <div class="column right aligned">
+      </div>
+    </div>
+    <div class="ui divider"></div>
+    <table class="ui very basic celled collapsed table">
+      <thead>
+        <th class="six wide">Name</th>
+      </thead>
+      <tbody>
+<%
+  @workers.sort_by(&:name).each do |worker|
+%>
+        <tr>
+          <td>
+            <a href="<%= show_worker_path(name: worker.name) %>"><%= worker.name %></a>
+          </td>
+        </tr>
+<%
+  end
+%>
+      </tbody>
+    </table>
+  </div>
+</div>
