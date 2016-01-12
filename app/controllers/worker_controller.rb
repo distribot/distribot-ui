@@ -3,6 +3,7 @@ class WorkerController < ApplicationController
   before_filter :set_active_nav
 
   def list
+    @workers = [ ]
   end
 
   def show
