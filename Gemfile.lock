@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/jdrago999/distribot.git
-  revision: fc1c41f35e98ad04d7b0e3a880ac1d52ea12e15a
+  revision: ef324b63875d32697a6f2950e4bfe967e5e1a2ba
   specs:
     distribot (0.1.0)
       activesupport
@@ -143,7 +143,7 @@ GEM
     mini_portile2 (2.0.0)
     minitest (5.8.3)
     multi_json (1.11.2)
-    nio4r (1.1.1)
+    nio4r (1.2.0)
     nokogiri (1.6.7.1)
       mini_portile2 (~> 2.0.0.rc2)
     puma (2.15.3)

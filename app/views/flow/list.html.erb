@@ -6,7 +6,7 @@
         <h2>Flows</h2>
       </div>
       <div class="column right aligned">
-        <a href="<%= create_workflow_path %>" class="ui green button right labeled icon">
+        <a href="<%= create_flow_path %>" class="ui green button right labeled icon">
           Create New Flow
           <i class="right arrow icon"></i>
         </a>
@@ -21,22 +21,22 @@
       </thead>
       <tbody>
 <%
-  @workflows.sort_by(&:created_at).reverse_each do |workflow|
+  @flows.sort_by(&:created_at).reverse_each do |flow|
 %>
         <tr>
           <td>
-            <a href="<%= show_workflow_path(workflow_id: workflow.id) %>"><%= workflow.id %></a>
+            <a href="<%= show_flow_path(flow_id: flow.id) %>"><%= flow.id %></a>
           </td>
           <td>
-            <%= time_ago_in_words Time.at(workflow.created_at) %> ago
+            <%= time_ago_in_words Time.at(flow.created_at) %> ago
           </td>
           <td>
 <%
-    workflow.phases.each do |phase|
+    flow.phases.each do |phase|
 %>
             <div class="phase">
               <%= phase.name %>
-              <% if workflow.current_phase == phase.name %>
+              <% if flow.current_phase == phase.name %>
               <i class="left arrow icon"></i>
               <% end %>
             </div>
